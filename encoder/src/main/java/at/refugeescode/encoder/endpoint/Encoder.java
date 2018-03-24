@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @RestController
 public class Encoder {
 
-    private final String url = "http://localhost:9052/coin";
+    private final String url = "http://localhost:9052/morse";
     @Autowired
     private RestTemplate restTemplate;
 
