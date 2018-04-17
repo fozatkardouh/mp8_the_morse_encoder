@@ -1,5 +1,6 @@
 package at.refugeescode.encoder.endpoint;
 
+import at.refugeescode.encoder.Model.Form;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,10 @@ class EncoderTest {
 
     @Test
     void encode() {
-        String plain_text = "plain text";
-        encoder.encode(plain_text);
-        verify(restTemplate, times(plain_text.length())).postForEntity(anyString(), any(), any());
+        Form form = new Form();
+        form.setMessage("plain text");
+        encoder.encode(form);
+        verify(restTemplate, times(form.getMessage().length())).postForEntity(anyString(), any(), any());
 
     }
 
